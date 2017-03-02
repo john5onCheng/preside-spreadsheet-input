@@ -1211,10 +1211,10 @@ Handsontable.Core = function (rootElement, settings) {
             if (event.keyCode === 65) { //CTRL + A
               selection.selectAll(); //select all cells
             }
-            else if (event.keyCode === 88 && $.browser.opera) { //CTRL + X
+            else if (event.keyCode === 88 ) { //CTRL + X
               priv.editProxyHolder.triggerHandler('cut'); //simulate oncut for Opera
             }
-            else if (event.keyCode === 86 && $.browser.opera) { //CTRL + V
+            else if (event.keyCode === 86 ) { //CTRL + V
               priv.editProxyHolder.triggerHandler('paste'); //simulate onpaste for Opera
             }
             else if (event.keyCode === 89 || (event.shiftKey && event.keyCode === 90)) { //CTRL + Y or CTRL + SHIFT + Z
@@ -3791,10 +3791,10 @@ Handsontable.TextEditor = function (instance, td, row, col, prop, keyboardProxy,
         if (texteditor.isCellEdited && event.keyCode === 65) { //CTRL + A
           event.stopPropagation();
         }
-        else if (texteditor.isCellEdited && event.keyCode === 88 && $.browser.opera) { //CTRL + X
+        else if (texteditor.isCellEdited && event.keyCode === 88 ) { //CTRL + X
           event.stopPropagation();
         }
-        else if (texteditor.isCellEdited && event.keyCode === 86 && $.browser.opera) { //CTRL + V
+        else if (texteditor.isCellEdited && event.keyCode === 86 ) { //CTRL + V
           event.stopPropagation();
         }
       }

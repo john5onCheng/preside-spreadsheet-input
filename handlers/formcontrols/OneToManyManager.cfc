@@ -3,11 +3,12 @@ component output=false {
 	property name="presideObjectService" inject="presideObjectService";
 
 	public string function index( event, rc, prc, args={} ) output=false {
-		args.object          = args.relatedTo    ?: "";
-		args.sourceObject    = args.sourceObject ?: "";
-		args.sourceId        = args.savedData.id ?: "";
-		args.relationshipKey = args.relationshipKey ?: "";
-		args.spreadSheetInput = isBoolean(  args.spreadSheetInput ?: "" ) &&  args.spreadSheetInput;
+		args.object           = args.relatedTo    ?: "";
+		args.sourceObject     = args.sourceObject ?: "";
+		args.sourceId         = args.savedData.id ?: "";
+		args.relationshipKey  = args.relationshipKey ?: "";
+		args.spreadSheetInput = isBoolean( args.spreadSheetInput ?: "" ) &&  args.spreadSheetInput;
+		args.sortKey          = args.sortKey ?: "datecreated";
 
 		var sourceRecord = presideObjectService.selectData(
 			  objectName   = args.sourceObject
@@ -38,7 +39,7 @@ component output=false {
 
 		args.managerUrl = event.buildAdminLink(
 			  linkTo      = 'datamanager.manageOneToManyRecords'
-			, queryString = "object=#args.object#&parentObject=#args.sourceObject#&parentId=#args.sourceId#&relationshipKey=#args.relationshipKey#&spreadSheetInput=#args.spreadSheetInput#"
+			, queryString = "object=#args.object#&parentObject=#args.sourceObject#&parentId=#args.sourceId#&relationshipKey=#args.relationshipKey#&spreadSheetInput=#args.spreadSheetInput#&sortKey=#args.sortKey#"
 		);
 
 		event.include( "/js/admin/specific/oneToManyManager/" );
