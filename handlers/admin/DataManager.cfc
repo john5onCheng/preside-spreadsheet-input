@@ -54,7 +54,7 @@ component extends="preside.system.handlers.admin.DataManager"{
 
 			for( var key in objectFields ){
 
-				if( objectProperties[ key ].control == "textbox" && objectData.recordCount ){
+				if( objectProperties[ key ].control == "textarea" && objectData.recordCount ){
 					fieldsType = "{data:#counter# ,type: {renderer: descriptionRenderer}}";
 				}else{
 					fieldsType = "{data:#counter#}";
